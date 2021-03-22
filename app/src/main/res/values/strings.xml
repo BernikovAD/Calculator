@@ -17,6 +17,7 @@
     <string name="equally">=</string>
     <string name="point">.</string>
     <string name="reset">C</string>
-
-
+    <string name="myStyle">Стандартная тема</string>
+    <string name="darkStyle">Темная тема</string>
+    <string name="lightStyle">Светлая тема</string>
 </resources>
