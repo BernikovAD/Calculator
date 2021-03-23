@@ -18,26 +18,26 @@ public class CalculatorExemple implements Calculator {
     3- Ввод числа 2
     4- Вычисляем и показываем результат*/
     private enum State {
-        valueFirstInput,
-        operationSelected,
-        valueSecondInput,
-        resultShow
+    VALUE_FIRST_INPUT,
+    OPERATION_SELECTED,
+    VALUE_SECOND_INPUT,
+    RESULT_SHOW
     }
     //Конструктор класса, с выбор действия 1
     public CalculatorExemple() {
-        state = State.valueFirstInput;
+        state = State.VALUE_FIRST_INPUT;
     }
     //Обрабатываем события нажатия кнопок с цифрами
     @SuppressLint("NonConstantResourceId")
     public void onNumPressed(int buttonId) {
     //Если состояние равно 4(вычислять) то обнуляем  и переходим в первое состояние
-        if (state == State.resultShow) {
-            state = State.valueFirstInput;
+        if (state == State.RESULT_SHOW) {
+            state = State.VALUE_FIRST_INPUT;
             inputStr.setLength(0);
         }
         //Если состояние на выборе операции, то переходим на состояние ввода второй переменнной
-        if (state == State.operationSelected) {
-            state = State.valueSecondInput;
+        if (state == State.OPERATION_SELECTED) {
+            state = State.VALUE_SECOND_INPUT;
             inputStr.setLength(0);
         }
         //ограничем максимальную длинну значения в 10 цифр и переходим к определению какая кнопка нажата
@@ -79,10 +79,11 @@ public class CalculatorExemple implements Calculator {
         }
     }
     //Обрабатываем события нажатия кнопок на действия
+    @SuppressLint("NonConstantResourceId")
     public void onActionPressed(int actionId) {
-        if (actionId == R.id.button_equals && state == State.valueSecondInput && inputStr.length() > 0) {
+        if (actionId == R.id.button_equals && state == State.VALUE_SECOND_INPUT && inputStr.length() > 0) {
             valueSecond = Integer.parseInt(inputStr.toString());
-            state = State.resultShow;
+            state = State.RESULT_SHOW;
             inputStr.setLength(0);
             switch (actionSelected) {
                 case R.id.button_add:
@@ -99,9 +100,9 @@ public class CalculatorExemple implements Calculator {
                     break;
             }
 
-        } else if (inputStr.length() > 0 && state == State.valueFirstInput) {
+        } else if (inputStr.length() > 0 && state == State.VALUE_FIRST_INPUT) {
             valueFirst = Integer.parseInt(inputStr.toString());
-            state = State.operationSelected;
+            state = State.OPERATION_SELECTED;
             actionSelected = actionId;
         }
     }
@@ -112,18 +113,19 @@ public class CalculatorExemple implements Calculator {
             default:
                 //по умолчанию вводим первое число и показываем его
                 return inputStr.toString();
-            case operationSelected:
+            case OPERATION_SELECTED:
                 //Если выбор операции, то выводим первое число и операцию(-=*/)
                 return str.append(valueFirst).append(' ').append(getOperationChar()).toString();
-            case valueSecondInput:
+            case VALUE_SECOND_INPUT:
                 //Ввод 2го числа и вывод на экран пользователю
                 return str.append(valueFirst).append(' ').append(getOperationChar()).append(' ').append(inputStr).toString();
-            case resultShow:
+            case RESULT_SHOW:
                 //Показываем полученый результат
                 return str.append(valueFirst).append(' ').append(getOperationChar()).append(' ').append(valueSecond).append(" = ").append(inputStr.toString()).toString();
         }
     }
 
+    @SuppressLint("NonConstantResourceId")
     private char getOperationChar() {
         switch (actionSelected) {
             case R.id.button_add:
@@ -140,7 +142,7 @@ public class CalculatorExemple implements Calculator {
     }
 // Обнуляем поле
     public void reset() {
-        state = State.valueFirstInput;
+        state = State.VALUE_FIRST_INPUT;
         inputStr.setLength(0);
     }
 }

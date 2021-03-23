@@ -6,4 +6,7 @@
     <dimen name="heightTextView">80dp</dimen>
     <dimen name="marginTextView">30dp</dimen>
     <dimen name="paddingText">8dp</dimen>
+    <dimen name="paddingBtnSetting">30dp</dimen>
+    <dimen name="btnStrokeWidthDef">2dp</dimen>
+    <dimen name="btnCornerRadiusDef">50dp</dimen>
 </resources>

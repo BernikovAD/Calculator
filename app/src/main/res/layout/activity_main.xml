@@ -4,39 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:theme="@style/MyStyle"
     tools:context=".MainActivity">
 
 
-    <RadioGroup
-        android:id="@+id/radioButtons"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/textView" >
-
-        <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/radioButtonMyStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/myStyle" />
-
-        <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/radioButtonLight"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/lightStyle" />
-
-
-        <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/radioButtonDark"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/darkStyle" />
-
-    </RadioGroup>
+  <com.google.android.material.button.MaterialButton
+      android:id="@+id/btnSettings"
+      android:text="@string/changeTheme"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      style="@style/Styte_btn"
+      android:padding="@dimen/paddingBtnSetting"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintBottom_toTopOf="@+id/textView"/>
 
     <TextView
         android:id="@+id/textView"
@@ -51,107 +32,103 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioButtons" />
+        app:layout_constraintTop_toBottomOf="@+id/btnSettings" />
 
     <GridLayout
         android:id="@+id/gridLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_gravity="center_horizontal"
         android:columnCount="4"
         android:orientation="horizontal"
-        android:rowCount="5"
+        android:rowCount="4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textView">
 
-        <Button
-            android:id="@+id/button_div"
-            style="@style/styte_btn"
-            android:layout_column="3"
-            android:text="@string/division" />
 
-        <Button
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_1"
-            style="@style/styte_btn"
-            android:layout_row="1"
-            android:layout_column="0"
+            style="@style/Styte_btn"
             android:text="@string/_1" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_2"
-            style="@style/styte_btn"
+            style="@style/Styte_btn"
             android:text="@string/_2" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_3"
-            style="@style/styte_btn"
-            android:layout_width="match_parent"
+            style="@style/Styte_btn"
             android:text="@string/_3" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_mul"
-            style="@style/styte_btn"
+            style="@style/Styte_btn"
             android:text="@string/multiplication" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_4"
-            style="@style/styte_btn"
+            style="@style/Styte_btn"
             android:text="@string/_4" />
 
-        <Button
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_5"
-            style="@style/styte_btn"
+            style="@style/Styte_btn"
             android:text="@string/_5" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_6"
-            style="@style/styte_btn"
+            style="@style/Styte_btn"
             android:text="@string/_6" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_sub"
-            style="@style/styte_btn"
+            style="@style/Styte_btn"
             android:text="@string/subtraction" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_7"
-            style="@style/styte_btn"
+            style="@style/Styte_btn"
             android:text="@string/_7"/>
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_8"
-            style="@style/styte_btn"
+            style="@style/Styte_btn"
             android:text="@string/_8" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_9"
-            style="@style/styte_btn"
+            style="@style/Styte_btn"
             android:text="@string/_9" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_add"
-            style="@style/styte_btn"
+            style="@style/Styte_btn"
             android:text="@string/addition" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_0"
-            style="@style/styte_btn"
+            style="@style/Styte_btn"
             android:text="@string/_0" />
 
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_res"
-            style="@style/styte_btn"
+            style="@style/Styte_btn"
             android:text="@string/reset" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_equals"
-            style="@style/styte_btn"
-            android:layout_columnSpan="2"
-            android:layout_gravity="fill"
+            style="@style/Styte_btn"
             android:text="@string/equally" />
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_div"
+            style="@style/Styte_btn"
+            android:text="@string/division" />
     </GridLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

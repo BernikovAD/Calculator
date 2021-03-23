@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
@@ -21,32 +22,22 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
-        int theme = sp.getInt("THEME", R.style.MyStyle);
-        setTheme(theme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         calculator = new CalculatorExemple();
         text = findViewById(R.id.textView);
-        RadioGroup radioGroup = findViewById(R.id.radioButtons);
 
-        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @SuppressLint("NonConstantResourceId")
+
+
+        findViewById(R.id.btnSettings).setOnClickListener( new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch (checkedId) {
-                    case R.id.radioButtonMyStyle:
-                        setTheme(R.style.MyStyle);
-                        break;
-                    case R.id.radioButtonDark:
-                        setTheme(R.style.Theme_AppCompat_DayNight);
-                        break;
-                    case R.id.radioButtonLight:
-                        setTheme(R.style.Theme_AppCompat_Light);
-                        break;
-                }
+            public void onClick(View v) {
+                Intent settingsIntent = new Intent(MainActivity.this,ChangeTheme.class);
+                startActivity(settingsIntent);
             }
         });
+
+
         //создаем массив кнопок с цифрами
         int[] numberIds = new int[]{
                 R.id.button_0,
