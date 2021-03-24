@@ -17,6 +17,7 @@
     <string name="equally">=</string>
     <string name="point">.</string>
     <string name="reset">C</string>
-
-
+    <string name="EnableTheme">Сменить тему</string>
+    <string name="changeTheme">Настройки</string>
+    <string name="btnStringBack">Назад</string>
 </resources>
